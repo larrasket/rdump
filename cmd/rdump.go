@@ -14,7 +14,7 @@ import (
 
 func main() {
 	if len(os.Args) == 1 {
-		fmt.Fprintf(os.Stderr, "Please pass a username as an argument")
+		fmt.Fprintf(os.Stderr, "Please pass a username as command line argument")
 		return
 	}
 	u := os.Args[1]
@@ -50,7 +50,7 @@ func main() {
 	sort.Slice(ss, func(i, j int) bool {
 		return ss[i].Value > ss[j].Value
 	})
-	fmt.Printf("All subreddit %s is involved in:\n\n", u)
+	fmt.Printf("All subreddit %s is involved in:(sorted by frequency)\n\n", u)
 	for _, value := range ss {
 		fmt.Printf("https://www.reddit.com/%s\n", value.Key)
 	}
